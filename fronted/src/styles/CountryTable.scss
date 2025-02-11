@@ -1,0 +1,74 @@
+.MuiButton-root:enabled {
+    background-color: #9eafff; 
+    justify-content: center;
+    margin-left: 15px;
+    color: white;
+    &:hover {
+      background-color: #7d9aff;
+    }
+  }
+
+
+
+.table-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 10px;
+  }
+  
+  .MuiDataGrid-root {
+    background-color: #f7f9fc;
+    border-radius:20px;
+    border:3px solid #9eafff;
+  }
+  
+  .MuiDataGrid-columnHeaders {
+   
+    color: #9eafff;
+    font-size: 1.1rem;
+  }
+  
+  .MuiDataGrid-cell {
+    font-size: 1rem;
+
+  }
+  
+  .MuiDataGrid-row:hover {
+    background-color: #e3e8ff;
+  }
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .table-container {
+      padding: 5px;
+    }
+  
+    .MuiDataGrid-columnHeaders {
+      font-size: 1rem;
+    }
+  
+    .MuiDataGrid-cell {
+      font-size: 0.9rem;
+    }
+  }
+  
+
+  @media (max-width: 480px) {
+    .table-container {
+      max-width: 100%;
+      margin: 10px;
+    }
+  
+    .MuiDataGrid-columnHeaders {
+      font-size: 0.9rem;
+    }
+  
+    .MuiDataGrid-cell {
+      font-size: 0.8rem;
+    }
+  }

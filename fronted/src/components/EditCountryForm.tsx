@@ -12,36 +12,26 @@ import {
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import { useQuery } from 'react-query';
-import { getCountry } from '../services/countryService';
+import { getCountry, updateCountry } from '../services/countryService';
 import { useSetRecoilState } from 'recoil';
 import '../styles/EditCountryForm.scss';
-
-import { useRecoilValue } from 'recoil';
 import { selectedCountryState } from '../recoil/atoms';
+import { ICountry } from '../types/country';
 
-interface Country {
-  _id: string;
-  name: string;
-  region: string;
-  population: number;
-  flag?: string;
-}
 
 const EditCountryForm: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const setEditingCountryName = useSetRecoilState(selectedCountryState);
   const navigate = useNavigate();
 
-  //   const { data: country, isLoading, isError } = useQuery<Country>(['country', id], () => getCountry(id!));
-  // //   console.log(data);
+
 
   const {
     data: country,
     isLoading,
     isError,
-  } = useQuery<Country>(['country', id], () => getCountry(id!), {
+  } = useQuery<ICountry>(['country', id], () => getCountry(id!), {
     onSuccess: (data) => {
-      // עדכון שם המדינה ב-Recoil כשהנתונים נטענים בהצלחה
       setEditingCountryName(data.name);
     },
   });
@@ -57,26 +47,33 @@ const EditCountryForm: React.FC = () => {
     flag: Yup.string().url('Invalid URL').optional(),
   });
 
-  const handleSubmit = (values: Country) => {
-    // שליחת הנתונים המעודכנים לשרת
-    fetch(`/api/countries/${id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(values),
-    })
-      .then(() => {
-        setEditingCountryName('');
-        navigate('/');
-      })
-      .catch((error) => console.error('Error updating country:', error));
+
+
+
+
+  const handleSubmit = async (values: ICountry) => {
+    try {
+      if (!id) {
+        return <div>Invalid ID</div>;
+      }
+      const data = await updateCountry(id, values);
+      setEditingCountryName('');
+      navigate('/homepage');
+    } catch (error) {
+      console.error('Error updating country:', error);
+    }
   };
+
+  
+
+
 
   const handleCancel = (formik: any) => {
     if (JSON.stringify(country) !== JSON.stringify(formik.values)) {
       setOpenModal(true);
     } else {
       setEditingCountryName('');
-      navigate('/');
+      navigate('/homepage');
     }
   };
 
@@ -84,7 +81,7 @@ const EditCountryForm: React.FC = () => {
     setOpenModal(false);
     if (confirmed) {
       setEditingCountryName('');
-      navigate('/');
+      navigate('/homepage');
     }
   };
 

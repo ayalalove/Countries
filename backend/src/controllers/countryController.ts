@@ -8,8 +8,6 @@ import { fetchAndSaveCountries } from '../services/countryService';
 
 export const getCountries = async (req: Request, res: Response): Promise<void> => {
   
-  console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-  
   try {
     const countries = await Country.find();  
      res.status(200).json(countries);  

@@ -8,19 +8,19 @@ import { getCountries, createCountry, updateCountry, deleteCountry, fetchCountri
 const router = Router();
 
 
-router.get('/countries', getCountries);
+router.get('/', getCountries);
 
-router.get('/countries/:id', getCountryById);
-
-
-router.post('/countries', createCountry);
+router.get('/:id', getCountryById);
 
 
-router.put('/countries/:id', updateCountry);
+router.post('/', createCountry);
+
+
+router.put('/:id', updateCountry);
 
 
 
-router.delete('/countries/:id', deleteCountry);
+router.delete('/:id', deleteCountry);
 
 
 router.get('/fetch-countries', fetchCountries);

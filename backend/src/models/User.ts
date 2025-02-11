@@ -1,7 +1,4 @@
 
-
-
-
 import mongoose from 'mongoose';
 
 
@@ -11,19 +8,21 @@ interface IUser {
     username: string;
     email: string;
     phone: string;
+    profileImage: string | null;
     password: string;
-    role: string
+    role: string| "user";
   }
 
 
   const UserSchema = new mongoose.Schema<IUser>({
-    firstName: { type: String,  unique: true },
-    lastName: { type: String },
-    username: { type: String },
-    email: { type: String },
-    phone: { type: String },
+    firstName: { type: String, required: true },
+    lastName: { type: String,required: true },
+    username: { type: String,required: true },
+    email: { type: String,required: true },
+    phone: { type: String,required: true },
+    profileImage: { type: String }, 
     password: { type: String },
-    role: { type: String }
+    role: { type: String}
   });
 
   

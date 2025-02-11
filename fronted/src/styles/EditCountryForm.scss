@@ -1,104 +1,9 @@
 
 
-
-
-
-/* עיצוב עבור הדיאלוג (Modal) */
-.MuiDialog-root {
- 
-
-
-
-  .MuiDialogActions-root {
-    justify-content: space-between;
-    padding: 10px 20px;
-
-    .MuiButton-root {
-      font-size: 1rem;
-      text-transform: none;
-      padding: 8px 20px;
-      border-radius: 5px;
-    }
-
-    .MuiButton-root:first-child {
-      background-color: #9eafff;
-      color: white;
-      border: none;
-
-      &:hover {
-        background-color: #7d9aff; /* צבע כהה יותר עבור hover */
-      }
-
-      &:disabled {
-        background-color: #d3d3d3; /* צבע חיוור כאשר הכפתור לא פעיל */
-        color: #9eafff;
-        cursor: not-allowed;
-      }
-    }
-
-    .MuiButton-root:last-child {
-      background-color: #9eafff;
-      color: white;
-      border: none;
-
-      &:hover {
-        background-color: #7d9aff; /* צבע כהה יותר על hover */
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* הצללה יותר מודגשת */
-        border-color: #bbb; /* גבול כהה יותר */
-        transform: translateY(-2px); /* הזזת הכפתור מעלה מעט */
-      }
-
-      &:disabled {
-        background-color: #f1f1f1; /* צבע חיוור כאשר הכפתור לא פעיל */
-        color: #ccc;
-        cursor: not-allowed;
-      }
-    }
-  }
-}
-
-/* עיצוב עבור שדות הטופס */
-.MuiTextField-root {
-  margin-bottom: 20px;
-  width: 100%;
-  .MuiInputBase-root {
-    font-size: 1rem;
-    padding: 10px;
-  }
-}
-
-/* עיצוב עבור הכותרת "Edit [Country Name]" */
-.MuiDialogTitle-root p {
-  font-size: 1.2rem;
-  color: #7d9aff;
-  font-weight: bold;
-  text-align: center;
-}
-
-/* עיצוב עבור מודל האזהרה של "Unsaved Changes" */
-.MuiDialog-contentText {
-  font-size: 1rem;
-  color: #555;
-}
-
-/* כפתורי Cancel ו-Save */
-.MuiDialogActions-root .MuiButton-root {
-  font-size: 1rem;
-  text-transform: none;
-  padding: 8px 20px;
-  border-radius: 5px;
-}
-
-/* עיצוב עבור כפתור ה-Save כאשר הוא לא פעיל */
-.MuiButton-root:disabled {
-  background-color: #9eafff; /* חיוור בעת חוסר פעילות */
-  color: #b0b0b0;
-  cursor: not-allowed;
-}
-
-/* שינוי צבע כפתור ה-Save כאשר יש שינויים */
 .MuiButton-root:enabled {
-  background-color: #9eafff; /* צבע חזק */
+  background-color: #9eafff; 
+  justify-content: center;
+  margin-left: 15px;
   color: white;
   &:hover {
     background-color: #7d9aff;
@@ -108,7 +13,6 @@
 .country-table {
   display: flex;
   justify-content: center;
-  padding: 7px;
-  gap: 20px; /* מרווח בין הכפתורים */
+
 
 }

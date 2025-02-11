@@ -4,7 +4,6 @@ const API_URL = 'http://localhost:5000/api/countries';
 
 export const getCountries = async () => {
   const { data } = await axios.get(API_URL);
-
   return data;
 };
 
